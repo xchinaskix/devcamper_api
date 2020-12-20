@@ -13,7 +13,7 @@ router
     advancedResults(Review, { path: 'bootcamp', select: 'name description' }),
     getReviews
   )
-  .post(protect, authorize('users', 'admin'), addReview);
+  .post(protect, authorize('user', 'admin'), addReview);
 
 router.route('/:id').get(getReview);
 
