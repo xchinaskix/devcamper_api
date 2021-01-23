@@ -14,6 +14,7 @@ const hpp = require('hpp');
 const cors = require('cors');
 
 const connectDB = require('./config/db');
+const logger = require('./middleware/logger');
 
 // load env vars
 dotenv.config({ path: './config/config.env' });
@@ -50,6 +51,8 @@ app.use(helmet());
 
 // prevent xss attacks
 app.use(xss());
+
+app.use(logger);
 
 // rate limiting
 const limiter = rateLimit({
