@@ -52,7 +52,8 @@ app.use(helmet());
 // prevent xss attacks
 app.use(xss());
 
-app.use(logger);
+// log requests
+// app.use(logger);
 
 // rate limiting
 const limiter = rateLimit({
@@ -80,11 +81,11 @@ app.use('/api/v1/reviews', reviews);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-const HOSTNAME = process.env.NODE_ENV === 'development' ? '0.0.0.0' : '134.122.12.82';
+// const HOSTNAME = process.env.NODE_ENV === 'development' ? '0.0.0.0' : '134.122.12.82';
 
 const server = app.listen(
   PORT,
-  HOSTNAME,
+  // HOSTNAME,
   console.log(
     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
   )
